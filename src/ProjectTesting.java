@@ -8,23 +8,25 @@ import org.openqa.selenium.chrome.ChromeDriver;
 class ProjectTesting {
 	
 	WebDriver driver = new ChromeDriver();
-	@BeforeEach
-	public void beforeEachFunction(){
-		driver.get ("https://svcollegetest.000webhostapp.com/");
-	}
+//	@BeforeEach
+//	public void beforeEachFunction(){
+//		driver.get ("https://svcollegetest.000webhostapp.com/");
+//	}
 	
 	//Sanity Test
 	@Test
-	void Gamesanity() throws InterruptedException {
+	void Gamesanity() {
 		
+		driver.get ("https://svcollegetest.000webhostapp.com/");
 		QnAone.QnAone(driver);
 		QnAtwo.QnAtwo(driver);
 		QnAthree.QnAthree(driver);
-		GameFrstRound.GameFrstRound();
-		GameSecondRound.GameSecondRound();
-		GameThirdRound.GameThirdRound();
+		GameFrstRound.GameFrstRound(driver);
+		GameSecondRound.GameSecondRound(driver);
+		GameThirdRound.GameThirdRound(driver);
 		
 	}
+	driver.quit();
 	
 	//Boundary Values Test
 	@Test
